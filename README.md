@@ -6,3 +6,13 @@
 - CombSort
 - InsertionSort
 - ShellSort
+
+## Code Exsample
+```
+ static void Main(string[] args)
+        {
+            var SortedData = GenerateRandomArray().CombSort();
+        }
+        public static int[] GenerateRandomArray()
+```
+- This library works as extension methods for any enumerated structure, which in my opinion makes it more flexible for use in code.

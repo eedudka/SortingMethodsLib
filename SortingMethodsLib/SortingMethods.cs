@@ -70,7 +70,7 @@ namespace SortingMethodsLib
         /// <summary>
         /// </summary>
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
-        /// <param name="DataToSort">Array for sort</param>
+        /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
         public static IEnumerable<int> CombSort(this IList<int> DataToSort, double k = 1.2474)
         {
@@ -111,7 +111,7 @@ namespace SortingMethodsLib
         /// <summary>
         /// </summary>
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
-        /// <param name="DataToSort">Array for sort</param>
+        /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
         public static IEnumerable<int> ShellSort(this IList<int> DataToSort, double k = 1.2474)
         {
