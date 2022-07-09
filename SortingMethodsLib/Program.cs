@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections.Specialized;
 
 namespace SortingMethodsLib
 {
@@ -6,15 +9,17 @@ namespace SortingMethodsLib
     {
         static void Main(string[] args)
         {
-            var SortedData = GenerateRandomArray().CombSort();
+            var SortedData = GenerateRandomArray();
+            SortedData = SortedData.QuickSort(0, SortedData.Count() - 1).ToArray();
+           
         }
         public static int[] GenerateRandomArray()
         {
             Random rnd = new Random();
-            int[] rndArray = new int[rnd.Next(1000)];
+            int[] rndArray = new int[rnd.Next(500,1000)];
             for (int i = 0; i < rndArray.Length; i++)
             {
-                rndArray[i] = rnd.Next(int.MaxValue);
+                rndArray[i] = rnd.Next(1000);
             }
 
             return rndArray;

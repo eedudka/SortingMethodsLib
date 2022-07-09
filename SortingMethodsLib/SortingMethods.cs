@@ -8,7 +8,7 @@ namespace SortingMethodsLib
 {
     internal static class SortingMethods
     {
-        private static IEnumerable<int> Swaper(this IList<int> DataToSwap, int i, int j)
+        private static IEnumerable<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
             int tempData = DataToSwap[i];
             DataToSwap[i] = DataToSwap[j];
@@ -24,9 +24,7 @@ namespace SortingMethodsLib
                 {
                     if (DataToSort[firstEl] > DataToSort[secondEl])
                     {
-                        int tempData = DataToSort[secondEl];
-                        DataToSort[secondEl] = DataToSort[firstEl];
-                        DataToSort[firstEl] = tempData;
+                        Swaper(ref DataToSort, secondEl, firstEl);
                     }
                 }
             }
@@ -46,7 +44,7 @@ namespace SortingMethodsLib
                 {
                     if (DataToSort[i] > DataToSort[i + 1])
                     {
-                        Swaper(DataToSort, i + 1, i);
+                        Swaper(ref DataToSort, i + 1, i);
                         b = true;
                     }
 
@@ -59,7 +57,7 @@ namespace SortingMethodsLib
                     if (DataToSort[i] < DataToSort[i - 1])
                     {
 
-                        Swaper(DataToSort, i - 1, i);
+                        Swaper(ref DataToSort, i - 1, i);
                         b = true;
                     }
 
@@ -84,7 +82,7 @@ namespace SortingMethodsLib
                 {
                     if (DataToSort[i] > DataToSort[i + (int)stepSize])
                     {
-                        Swaper(DataToSort, i, i + (int)stepSize);
+                        Swaper(ref DataToSort, i, i + (int)stepSize);
                     }
                 }
 
@@ -100,7 +98,7 @@ namespace SortingMethodsLib
                 int j = i;
                 while (j > 0 && DataToSort[j - 1] > tempValue)
                 {
-                    Swaper(DataToSort, j, j - 1);
+                    Swaper(ref DataToSort, j, j - 1);
                     j--;
                 }
                 DataToSort[j] = tempValue;
@@ -113,25 +111,89 @@ namespace SortingMethodsLib
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
         /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
-        public static IEnumerable<int> ShellSort(this IList<int> DataToSort, double k = 1.2474)
+        public static IEnumerable<int> ShellSort(this IList<int> DataToSort)
         {
-            double stepSize = DataToSort.Count - 1;
-            while (stepSize >= 1)
+            double stepSize = DataToSort.Count - 1 / 2;
+            while (stepSize > 0)
             {
-                stepSize = stepSize < 1 ? stepSize = 1 : stepSize /= k;
                 for (int i = 0; i + stepSize < DataToSort.Count; i++)
                 {
-                    int tempValue = DataToSort[i];
                     int j = i;
-                    while (j > 0 && DataToSort[j - 1] > tempValue)
+                    while (j > 0 && DataToSort[j - 1] > DataToSort[i])
+                    {
+                        Swaper(ref DataToSort, j, j - 1);
+                        j--;
+                    }
+                }
+                stepSize /= 2;
+            }
+            return DataToSort;
+        }
+        public static IEnumerable<int> ShellSortMemSafe(this IList<int> DataToSort)
+        {
+            int stepSize = DataToSort.Count / 2;
+            while (stepSize > 0)
+            {
+                int j;
+                for (int i = stepSize; i < DataToSort.Count; i++)
+                {
+                    int value = DataToSort[i];
+                    for (j = i - stepSize; (j >= 0) && (DataToSort[j] > value); j -= stepSize)
+                        DataToSort[j + stepSize] = DataToSort[j];
+
+                    DataToSort[j + stepSize] = value;
+                }
+                stepSize /= 2;
+            }
+            return DataToSort;
+        }
+        public static IEnumerable<int> QuickSort(this IList<int> DataToSort,int leftIndex,int rightIndex)
+        {
+            int i = leftIndex;
+            int j = rightIndex;
+            int bearingValue = DataToSort[(i+j)/2];
+            do
+            {
+                while (DataToSort[i] < bearingValue) i++;
+                while (DataToSort[i] > bearingValue) j--;
+                if (i < j)
+                {
+                    Swaper(ref DataToSort, i, j);
+                    i++;
+                    j++;
+                }
+            }
+            while (i <= j);
+            if (j>leftIndex) QuickSort(DataToSort, leftIndex, j);
+            if (i<rightIndex) QuickSort(DataToSort, i, rightIndex);
+            
+            return DataToSort;
+        } //in process
+        /*
+         * public static IEnumerable<int> ShellSortHibSeq(this IList<int> DataToSort)
+        {
+            int step = 1;
+            while (step < DataToSort.Count - 1) step <<= 1;
+            step >>= 1;
+            step--;
+            while (step > 0)
+            {
+                for (int i = 0; i+step < DataToSort.Count; i++)
+                {
+                    int j = i;
+
+                    while (j > 0 && DataToSort[j - 1] > DataToSort[i])
                     {
                         Swaper(DataToSort, j, j - 1);
                         j--;
                     }
-                    DataToSort[j] = tempValue;
                 }
+                step /= 2;
+            
             }
             return DataToSort;
+
         }
+         */
     }
 }
