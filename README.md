@@ -8,7 +8,7 @@
 - ShellSort
 
 ## Code Exsample
-```
+```C#
  static void Main(string[] args)
         {
             var SortedData = GenerateRandomArray().CombSort();
