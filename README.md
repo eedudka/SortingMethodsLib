@@ -6,6 +6,8 @@
 - CombSort
 - InsertionSort
 - ShellSort
+- ShellSortMemmorySafe
+- QuickSort(in process)
 
 ## Code Exsample
 ```C#
