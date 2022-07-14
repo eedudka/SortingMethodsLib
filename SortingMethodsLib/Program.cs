@@ -10,8 +10,9 @@ namespace SortingMethodsLib
         static void Main(string[] args)
         {
             var SortedData = GenerateRandomArray();
-            SortedData = SortedData.QuickSort(0, SortedData.Count() - 1).ToArray();
-           
+            SortedData = SortedData.QuickSort(0,SortedData.Length-1).ToArray();
+            
+            
         }
         public static int[] GenerateRandomArray()
         {

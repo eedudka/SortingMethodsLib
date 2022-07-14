@@ -6,16 +6,32 @@ using System.Threading.Tasks;
 
 namespace SortingMethodsLib
 {
-    internal static class SortingMethods
+    internal static class  SortingMethods
     {
-        private static IEnumerable<int> Swaper(ref IList<int> DataToSwap, int i, int j)
+        private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
             int tempData = DataToSwap[i];
             DataToSwap[i] = DataToSwap[j];
             DataToSwap[j] = tempData;
             return DataToSwap;
         }
-        public static IEnumerable<int> BoubleSort(this IList<int> DataToSort)
+        private static int DoPart(IList<int> input, int low, int high)
+        {
+            int pivot = input[high];
+            int i = low - 1;
+
+            for (int j = low; j < high - 1; j++)
+            {
+                if (input[j] <= pivot)
+                {
+                    i++;
+                    Swaper(ref input, i, j);
+                }
+            }
+            Swaper(ref input, i + 1, high);
+            return i + 1;
+        }
+        public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
 
             for (int firstEl = 0; firstEl < DataToSort.Count(); firstEl++)
@@ -31,7 +47,7 @@ namespace SortingMethodsLib
             return DataToSort;
 
         }
-        public static IEnumerable<int> CoctailSort(this IList<int> DataToSort)
+        public static IList<int> CoctailSort(this IList<int> DataToSort)
         {
             int begin = 0;
             int end = DataToSort.Count - 1;
@@ -70,7 +86,7 @@ namespace SortingMethodsLib
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
         /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
-        public static IEnumerable<int> CombSort(this IList<int> DataToSort, double k = 1.2474)
+        public static IList<int> CombSort(this IList<int> DataToSort, double k = 1.2474)
         {
 
             double stepSize = DataToSort.Count - 1;
@@ -90,7 +106,7 @@ namespace SortingMethodsLib
 
             return DataToSort;
         }
-        public static IEnumerable<int> InsertionSort(this IList<int> DataToSort)
+        public static IList<int> InsertionSort(this IList<int> DataToSort)
         {
             for (int i = 1; i < DataToSort.Count; i++)
             {
@@ -111,7 +127,7 @@ namespace SortingMethodsLib
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
         /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
-        public static IEnumerable<int> ShellSort(this IList<int> DataToSort)
+        public static IList<int> ShellSort(this IList<int> DataToSort)
         {
             double stepSize = DataToSort.Count - 1 / 2;
             while (stepSize > 0)
@@ -129,7 +145,7 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
-        public static IEnumerable<int> ShellSortMemSafe(this IList<int> DataToSort)
+        public static IList<int> ShellSortMemSafe(this IList<int> DataToSort)
         {
             int stepSize = DataToSort.Count / 2;
             while (stepSize > 0)
@@ -147,28 +163,20 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
-        public static IEnumerable<int> QuickSort(this IList<int> DataToSort,int leftIndex,int rightIndex)
+        public static IList<int> QuickSort(this IList<int> DataToSort,int low,int high)
         {
-            int i = leftIndex;
-            int j = rightIndex;
-            int bearingValue = DataToSort[(i+j)/2];
-            do
+            int pivot_loc = 0;
+
+            if (low < high)
             {
-                while (DataToSort[i] < bearingValue) i++;
-                while (DataToSort[i] > bearingValue) j--;
-                if (i < j)
-                {
-                    Swaper(ref DataToSort, i, j);
-                    i++;
-                    j++;
-                }
+                pivot_loc = DoPart(DataToSort, low, high);
+                QuickSort(DataToSort, low, pivot_loc - 1);
+                QuickSort(DataToSort, pivot_loc + 1, high);
             }
-            while (i <= j);
-            if (j>leftIndex) QuickSort(DataToSort, leftIndex, j);
-            if (i<rightIndex) QuickSort(DataToSort, i, rightIndex);
-            
+
             return DataToSort;
-        } //in process
+        }
+
         /*
          * public static IEnumerable<int> ShellSortHibSeq(this IList<int> DataToSort)
         {
