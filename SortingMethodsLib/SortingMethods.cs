@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortingMethodsLib
 {
-    internal static class  SortingMethods
+    internal static class SortingMethods
     {
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
@@ -34,7 +34,7 @@ namespace SortingMethodsLib
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
 
-            for (int firstEl = 0; firstEl < DataToSort.Count(); firstEl++)
+            for (int firstEl = 0; firstEl < DataToSort.Count; firstEl++)
             {
                 for (int secondEl = firstEl + 1; secondEl < DataToSort.Count; secondEl++)
                 {
@@ -50,7 +50,7 @@ namespace SortingMethodsLib
         public static IList<int> CoctailSort(this IList<int> DataToSort)
         {
             int begin = 0;
-            int end = DataToSort.Count - 1;
+            int end = DataToSort.Count;
             bool b = true;
             while (b)
             {
@@ -89,7 +89,7 @@ namespace SortingMethodsLib
         public static IList<int> CombSort(this IList<int> DataToSort, double k = 1.2474)
         {
 
-            double stepSize = DataToSort.Count - 1;
+            double stepSize = DataToSort.Count;
 
             while (stepSize > 1)
             {
@@ -122,48 +122,59 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
+        public static IList<int> ShellSort(this IList<int> DataToSort)
+        {
+
+            for (int s = DataToSort.Count / 2 ; s > 0; s /= 2)
+            {
+                for (int i = s; i < DataToSort.Count; i++)
+                {
+                    for (int j = i - s; j >= 0 && DataToSort[j] > DataToSort[j + s]; j -= s)
+                    {
+                        Swaper(ref DataToSort, j, j + s);
+                    }
+                }
+
+            }
+            return DataToSort;
+        }
         /// <summary>
         /// </summary>
         /// <param name="k">Step ratio(usually this coefficient is equal to 1.2474)</param>
         /// <param name="DataToSort">Data structure for sort</param>
         /// <returns></returns>
-        public static IList<int> ShellSort(this IList<int> DataToSort)
+        public static IList<int> ShellSortK(this IList<int> DataToSort, double k = 1.2474)
         {
-            double stepSize = DataToSort.Count - 1 / 2;
-            while (stepSize > 0)
+
+            for (int s = (int)(DataToSort.Count / 2 * k); s > 0; s /= (int)(2 * k))
             {
-                for (int i = 0; i + stepSize < DataToSort.Count; i++)
+                for (int i = s; i < DataToSort.Count; i++)
                 {
-                    int j = i;
-                    while (j > 0 && DataToSort[j - 1] > DataToSort[i])
+                    for (int j = i - s; j >= 0 && DataToSort[j] > DataToSort[j + s]; j -= s)
                     {
-                        Swaper(ref DataToSort, j, j - 1);
-                        j--;
+                        Swaper(ref DataToSort, j, j + s);
                     }
                 }
-                stepSize /= 2;
-            }
-            return DataToSort;
-        }
-        public static IList<int> ShellSortMemSafe(this IList<int> DataToSort)
-        {
-            int stepSize = DataToSort.Count / 2;
-            while (stepSize > 0)
-            {
-                int j;
-                for (int i = stepSize; i < DataToSort.Count; i++)
-                {
-                    int value = DataToSort[i];
-                    for (j = i - stepSize; (j >= 0) && (DataToSort[j] > value); j -= stepSize)
-                        DataToSort[j + stepSize] = DataToSort[j];
 
-                    DataToSort[j + stepSize] = value;
-                }
-                stepSize /= 2;
             }
             return DataToSort;
         }
-        public static IList<int> QuickSort(this IList<int> DataToSort,int low,int high)
+        public static IList<int> ShellSortHubbard(this IList<int> DataToSort)
+        {
+            for (int s = DataToSort.Count / 2; s > 0; s /= 2)
+            {
+                for (int i = s; i < DataToSort.Count; i++)
+                {
+                    for (int j = i - s; j >= 0 && DataToSort[j] > DataToSort[j + s]; j -= s)
+                    {
+                        Swaper(ref DataToSort, j, j + s);
+                    }
+                }
+
+            }
+            return DataToSort;
+        }
+        public static IList<int> QuickSort(this IList<int> DataToSort, int low, int high)
         {
             int pivot_loc = 0;
 
@@ -176,32 +187,12 @@ namespace SortingMethodsLib
 
             return DataToSort;
         }
-
-        /*
-         * public static IEnumerable<int> ShellSortHibSeq(this IList<int> DataToSort)
+        public static IList<int> TreeSort(this IList<int> DataToSort)
         {
-            int step = 1;
-            while (step < DataToSort.Count - 1) step <<= 1;
-            step >>= 1;
-            step--;
-            while (step > 0)
-            {
-                for (int i = 0; i+step < DataToSort.Count; i++)
-                {
-                    int j = i;
-
-                    while (j > 0 && DataToSort[j - 1] > DataToSort[i])
-                    {
-                        Swaper(DataToSort, j, j - 1);
-                        j--;
-                    }
-                }
-                step /= 2;
-            
-            }
+            TreeSort treeSort = new TreeSort();
+            treeSort.treeins(DataToSort.ToArray());
             return DataToSort;
 
         }
-         */
     }
 }

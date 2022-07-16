@@ -1,16 +1,16 @@
 # SortingMethodsLib
 ## This library currently implements such sorts as:
-- BoubleSort(ready)
-- CoctailSort(ready)
-- CombSort(ready)
-- InsertionSort(ready)
-- ShellSort(ready)
-- ShellSortMemmorySafe(ready)
-- QuickSort(ready)
-- ShellSortHib(in progress)
+- BoubleSort(ready) 09 jule 22
+- CoctailSort(ready) 09 jule 22
+- CombSort(ready) 09 jule 22
+- InsertionSort(ready) 09 jule 22
+- ShellSort(ready) 09 jule 22
+- ShellSortK(ready) 16 jule 22
+- ShellSortHib(ready) 16 jule 22
+- QuickSort(ready) 14 jule 22
 - ShellSortSedgwick(in progress)
-- ShellSortPratt(in progress)
-- TreeSort(in progress)
+- ShellSortPratt(in refactoring)
+- TreeSort(in refactoring)
 - GnomeSort(in progress)
 - SelectSort(in progress)
 - Heapsort(in progress)
@@ -30,6 +30,6 @@
         {
             var SortedData = GenerateRandomArray().CombSort();
         }
-        public static int[] GenerateRandomArray()
+ public static int[] GenerateRandomArray()
 ```
 - This library works as extension methods for any enumerated structure, which in my opinion makes it more flexible for use in code.
