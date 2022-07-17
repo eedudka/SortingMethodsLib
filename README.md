@@ -21,6 +21,7 @@
 - GrailSort(in progress)
 - pdqsort(in progress)
 - BoostSort(in progress)
+
 *Also, upon completion of the implementation of all these algorithms, Automatic Sorting Selection (ASS) will be implemented*
 
 11 out of 21 (not counting variations of the same algorithms) are already ready and tested
