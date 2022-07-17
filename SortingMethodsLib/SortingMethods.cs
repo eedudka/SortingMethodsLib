@@ -186,14 +186,14 @@ namespace SortingMethodsLib
             }
 
             return DataToSort;
-        }
+        } //re (need only 1 params for comfortable use)
         public static IList<int> TreeSort(this IList<int> DataToSort)
         {
             TreeSort treeSort = new TreeSort();
             treeSort.treeins(DataToSort.ToArray());
             return DataToSort;
 
-        }
+        } //re(need return array)
         public static IList<int> GnomeSort(this IList<int> DataToSort)
         {
             int i = 0;
@@ -209,5 +209,48 @@ namespace SortingMethodsLib
             return DataToSort;
 
         }
+        public static IList<int> SelectionSort(this IList<int> DataToSort) //re(sort only 50% array)
+        {
+            for (int i = 0; i < DataToSort.Count - 1; i++)
+            {
+                int minValue = DataToSort[i];
+                int minIdx = i;
+                for (int j = i + 1; j < DataToSort.Count - 1; j++)
+                {
+                    if (DataToSort[j] < minValue)
+                    {
+                        minValue = DataToSort[j];
+                        minIdx = j;
+                    }
+                    Swaper(ref DataToSort, i, minIdx);
+                }
+            }
+            return DataToSort;
+        }
+        public static IList<int> QuickSortWithInsert(this IList<int> DataToSort)
+        {
+            if (DataToSort.Count - 1 <= 32)
+            {
+                return DataToSort.InsertionSort();
+            }
+            int z = (1 + (DataToSort.Count - 1) / 2);
+            int ll = 1;
+            int rr = DataToSort.Count - 1;
+            while (ll <= rr)
+            {
+                while (ll < z) ll++;
+                while (rr > z) rr--;
+                if (ll <= rr)
+                {
+                    Swaper(ref DataToSort, ll, rr);
+                    ll++;
+                    rr--;
+                }
+            }
+            //if (1 < rr) QuickSortWithInsert(DataToSort, 1, rr + 1);
+            //if (ll < DataToSort.Count-1) QuickSortWithInsert(DataToSort, ll, DataToSort.Count-1);
+            return DataToSort;
+        } // re
+       
     }
 }
