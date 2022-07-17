@@ -9,12 +9,9 @@ namespace SortingMethodsLib
     {
         static void Main(string[] args)
         {
-            //var SortedData = GenerateRandomArray();
-            //SortedData = SortedData.TreeSort().ToArray();
-            TreeSort tree = new TreeSort();
-            int[] arr = { 5, 4, 7, 2, 11 };
-            tree.treeins(arr);
-            tree.inorderRec(tree.root);
+            var SortedData = GenerateRandomArray();
+            SortedData = SortedData.GnomeSort().ToArray();
+            
 
         }
         public static int[] GenerateRandomArray()

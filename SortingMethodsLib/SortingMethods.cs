@@ -125,7 +125,7 @@ namespace SortingMethodsLib
         public static IList<int> ShellSort(this IList<int> DataToSort)
         {
 
-            for (int s = DataToSort.Count / 2 ; s > 0; s /= 2)
+            for (int s = DataToSort.Count / 2; s > 0; s /= 2)
             {
                 for (int i = s; i < DataToSort.Count; i++)
                 {
@@ -191,6 +191,21 @@ namespace SortingMethodsLib
         {
             TreeSort treeSort = new TreeSort();
             treeSort.treeins(DataToSort.ToArray());
+            return DataToSort;
+
+        }
+        public static IList<int> GnomeSort(this IList<int> DataToSort)
+        {
+            int i = 0;
+            while (i < DataToSort.Count)
+            {
+                if (i == 0 || DataToSort[i - 1] <= DataToSort[i]) i++;
+                else
+                {
+                    Swaper(ref DataToSort, i - 1, i);
+                    i--;
+                }
+            }
             return DataToSort;
 
         }

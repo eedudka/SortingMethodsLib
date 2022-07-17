@@ -1,0 +1,15 @@
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.deps.json
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.dll
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.pdb
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.csproj.AssemblyReference.cache
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.AssemblyInfoInputs.cache
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.AssemblyInfo.cs
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.csproj.CoreCompileInputs.cache
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.dll
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\refint\SortingMethodsLib.dll
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.pdb
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\ref\SortingMethodsLib.dll
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.exe
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.runtimeconfig.json
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.genruntimeconfig.cache
