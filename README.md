@@ -9,10 +9,10 @@
 - ShellSortHib(ready) 16 jule 22
 - QuickSort(ready) 14 jule 22
 - ShellSortSedgwick(in progress)
-- ShellSortPratt(in refactoring)
-- TreeSort(in refactoring)
-- GnomeSort(in progress)
-- SelectSort(in progress)
+- ShellSortPratt(in progress) 
+- TreeSort(in refactoring) 14 jule 22
+- GnomeSort(ready) 17 jule 22
+- SelectSort(in refactoring) 17 jule 22
 - Heapsort(in progress)
 - LSDSort(in progress)
 - MSDSort(in progress)
