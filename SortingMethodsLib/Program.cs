@@ -10,7 +10,7 @@ namespace SortingMethodsLib
         static void Main(string[] args)
         {
             var SortedData = GenerateRandomArray();
-            SortedData = SortedData.HeapSort().ToArray();
+            SortedData = SortedData.RadixSort().ToArray();
             
 
         }

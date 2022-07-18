@@ -8,6 +8,8 @@ namespace SortingMethodsLib
 {
     internal static class SortingMethods
     {
+        private static int HeapSize;
+        private static int Bitik;
 
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
@@ -32,7 +34,6 @@ namespace SortingMethodsLib
             Swaper(ref input, i + 1, high);
             return i + 1;
         }
-        private static int HeapSize;
         private static void PreHeapSort(ref IList<int> DataToSort, int index)
         {
             int left = 2 * index + 1;
@@ -54,7 +55,7 @@ namespace SortingMethodsLib
                 PreHeapSort(ref DataToSort, largest);
             }
         }
-    
+        
 
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
@@ -291,7 +292,13 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
-
+        //public static IList<int> CountSort(this IList<int> DataToSort)
+        //{
+        //    int l = DataToSort.Min();
+        //    int r= DataToSort.Max();
+            
+        //    return DataToSort;
+        //}
 
     }
 }

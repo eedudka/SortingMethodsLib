@@ -13,7 +13,7 @@
 - TreeSort(in refactoring) 14 jule 22
 - GnomeSort(ready) 17 jule 22
 - SelectSort(in refactoring) 17 jule 22
-- Heapsort(in progress)
+- Heapsort(ready) 18 jule 22
 - LSDSort(in progress)
 - MSDSort(in progress)
 - BitonicSort(in progress)
@@ -24,7 +24,7 @@
 
 *Also, upon completion of the implementation of all these algorithms, Automatic Sorting Selection (ASS) will be implemented*
 
-11 out of 21 (not counting variations of the same algorithms) are already ready and tested
+12 out of 21 (not counting variations of the same algorithms) are already ready and tested
 
 ## Code Exsample
 ```C#
