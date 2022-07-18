@@ -8,6 +8,7 @@ namespace SortingMethodsLib
 {
     internal static class SortingMethods
     {
+
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
             int tempData = DataToSwap[i];
@@ -15,7 +16,7 @@ namespace SortingMethodsLib
             DataToSwap[j] = tempData;
             return DataToSwap;
         }
-        private static int DoPart(IList<int> input, int low, int high)
+        private static int DoPart(ref IList<int> input, int low, int high)
         {
             int pivot = input[high];
             int i = low - 1;
@@ -31,6 +32,30 @@ namespace SortingMethodsLib
             Swaper(ref input, i + 1, high);
             return i + 1;
         }
+        private static int HeapSize;
+        private static void PreHeapSort(ref IList<int> DataToSort, int index)
+        {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            int largest = index;
+            if (left <= HeapSize && DataToSort[left] > DataToSort[index])
+            {
+                largest = left;
+            }
+
+            if (right <= HeapSize && DataToSort[right] > DataToSort[largest])
+            {
+                largest = right;
+            }
+
+            if (largest != index)
+            {
+                Swaper(ref DataToSort, index, largest);
+                PreHeapSort(ref DataToSort, largest);
+            }
+        }
+    
+
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
 
@@ -180,7 +205,7 @@ namespace SortingMethodsLib
 
             if (low < high)
             {
-                pivot_loc = DoPart(DataToSort, low, high);
+                pivot_loc = DoPart(ref DataToSort, low, high);
                 QuickSort(DataToSort, low, pivot_loc - 1);
                 QuickSort(DataToSort, pivot_loc + 1, high);
             }
@@ -251,6 +276,22 @@ namespace SortingMethodsLib
             //if (ll < DataToSort.Count-1) QuickSortWithInsert(DataToSort, ll, DataToSort.Count-1);
             return DataToSort;
         } // re
-       
+        public static IList<int> HeapSort(this IList<int> DataToSort)
+        {
+            HeapSize = DataToSort.Count - 1;
+            for (int i = HeapSize / 2; i >= 0; i--)
+            {
+                PreHeapSort(ref DataToSort, i);
+            }
+            for (int i = DataToSort.Count - 1; i >= 0; i--)
+            {
+                Swaper(ref DataToSort, 0, i);
+                HeapSize--;
+                PreHeapSort(ref DataToSort, 0);
+            }
+            return DataToSort;
+        }
+
+
     }
 }
