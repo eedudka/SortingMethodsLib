@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SortingMethodsLib.Core</id>
+    <version>0.1.0</version>
+    <authors>Evgeniy Dudka</authors>
+    <description>This library of sorting methods job like exstentions with other int collections</description>
+    <repository url="https://github.com/hobbitkrd/SortingMethodsLib" />
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.dll" target="lib\net6.0\SortingMethodsLib.dll" />
+  </files>
+</package>

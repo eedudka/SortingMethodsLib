@@ -9,10 +9,6 @@ namespace SortingMethodsLib
     {
         static void Main(string[] args)
         {
-            var SortedData = GenerateRandomArray();
-            SortedData = SortedData.RadixSort().ToArray();
-            
-
         }
         public static int[] GenerateRandomArray()
         {

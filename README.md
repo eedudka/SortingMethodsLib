@@ -1,4 +1,5 @@
 # SortingMethodsLib
+[![LostTech.TensorFlow](https://img.shields.io/nuget/v/LostTech.TensorFlow.svg?label=nuget:%20SortingMethodsLib.Core)](https://www.nuget.org/packages/SortingMethodsLib.Core)
 ## This library currently implements such sorts as:
 - BoubleSort(ready) 09 jule 22
 - CoctailSort(ready) 09 jule 22
@@ -23,7 +24,6 @@
 - BoostSort(in progress)
 
 *Also, upon completion of the implementation of all these algorithms, Automatic Sorting Selection (ASS) will be implemented*
-
 12 out of 21 (not counting variations of the same algorithms) are already ready and tested
 
 ## Code Exsample

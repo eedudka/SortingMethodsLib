@@ -1,8 +1,34 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PackageId>SortingMethodsLib.Core</PackageId>
+		<Version>0.1.1</Version>
+		<Authors>Evgeniy Dudka</Authors>
+		<Company>Home</Company>
+		<Description>
+			This library of sorting methods job like extensions with other int collections
+		</Description>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<LicenseUrl>https://unlicense.org/</LicenseUrl>
+		<ProjectUrl>https://github.com/hobbitkrd/SortingMethodsLib</ProjectUrl>
+		<RepositoryUrl>https://github.com/hobbitkrd/SortingMethodsLib</RepositoryUrl>
+		<RespositoryType>git</RespositoryType>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="LICENSE.txt" Pack="true" PackagePath=""/>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="BinaryTreeNode.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="LICENSE.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

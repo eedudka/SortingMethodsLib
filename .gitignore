@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SortingMethodsLib/bin/Debug/SortingMethodsLib.Core.0.1.0.nupkg
+/SortingMethodsLib/bin/Debug/SortingMethodsLib.Core.0.1.1.nupkg

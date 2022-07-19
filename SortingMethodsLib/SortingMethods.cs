@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SortingMethodsLib
 {
-    internal static class SortingMethods
+    public static class SortingMethods
     {
         private static int HeapSize;
-        private static int Bitik;
+        
 
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {

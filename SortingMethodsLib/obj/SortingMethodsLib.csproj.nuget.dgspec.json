@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\Users\\666Satana666\\source\\repos\\SortingMethodsLib\\SortingMethodsLib\\SortingMethodsLib.csproj": {
-      "version": "1.0.0",
+      "version": "0.1.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\666Satana666\\source\\repos\\SortingMethodsLib\\SortingMethodsLib\\SortingMethodsLib.csproj",
-        "projectName": "SortingMethodsLib",
+        "projectName": "SortingMethodsLib.Core",
         "projectPath": "C:\\Users\\666Satana666\\source\\repos\\SortingMethodsLib\\SortingMethodsLib\\SortingMethodsLib.csproj",
         "packagesPath": "C:\\Users\\666Satana666\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\666Satana666\\source\\repos\\SortingMethodsLib\\SortingMethodsLib\\obj\\",

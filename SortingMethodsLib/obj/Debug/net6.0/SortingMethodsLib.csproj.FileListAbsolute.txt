@@ -10,6 +10,5 @@ C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug
 C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\refint\SortingMethodsLib.dll
 C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.pdb
 C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\ref\SortingMethodsLib.dll
-C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.exe
-C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\SortingMethodsLib.runtimeconfig.json
-C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\obj\Debug\net6.0\SortingMethodsLib.genruntimeconfig.cache
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\BinaryTreeNode.cs
+C:\Users\666Satana666\source\repos\SortingMethodsLib\SortingMethodsLib\bin\Debug\net6.0\LICENSE.txt
