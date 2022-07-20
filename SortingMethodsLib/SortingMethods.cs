@@ -9,7 +9,7 @@ namespace SortingMethodsLib
     public static class SortingMethods
     {
         private static int HeapSize;
-        
+
 
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
@@ -55,7 +55,7 @@ namespace SortingMethodsLib
                 PreHeapSort(ref DataToSort, largest);
             }
         }
-        
+
 
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
@@ -239,17 +239,15 @@ namespace SortingMethodsLib
         {
             for (int i = 0; i < DataToSort.Count - 1; i++)
             {
-                int minValue = DataToSort[i];
                 int minIdx = i;
-                for (int j = i + 1; j < DataToSort.Count - 1; j++)
+                for (int j = i + 1; j < DataToSort.Count; j++)
                 {
-                    if (DataToSort[j] < minValue)
+                    if (DataToSort[j] < DataToSort[minIdx])
                     {
-                        minValue = DataToSort[j];
                         minIdx = j;
                     }
-                    Swaper(ref DataToSort, i, minIdx);
                 }
+                Swaper(ref DataToSort, minIdx, i);
             }
             return DataToSort;
         }
@@ -296,7 +294,7 @@ namespace SortingMethodsLib
         //{
         //    int l = DataToSort.Min();
         //    int r= DataToSort.Max();
-            
+
         //    return DataToSort;
         //}
 

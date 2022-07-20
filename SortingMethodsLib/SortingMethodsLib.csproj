@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<OutputType>Library</OutputType>
+		<OutputType>Exe</OutputType>
 		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup>
@@ -19,7 +19,7 @@
 		<RespositoryType>git</RespositoryType>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="LICENSE.txt" Pack="true" PackagePath=""/>
+		<None Include="LICENSE.txt" Pack="true" PackagePath="" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="BinaryTreeNode.cs">

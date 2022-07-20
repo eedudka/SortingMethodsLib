@@ -9,6 +9,8 @@ namespace SortingMethodsLib
     {
         static void Main(string[] args)
         {
+            var toSort = GenerateRandomArray();
+            toSort = toSort.SelectionSort().ToArray();
         }
         public static int[] GenerateRandomArray()
         {

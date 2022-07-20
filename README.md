@@ -13,7 +13,7 @@
 - ShellSortPratt(in progress) 
 - TreeSort(in refactoring) 14 jule 22
 - GnomeSort(ready) 17 jule 22
-- SelectSort(in refactoring) 17 jule 22
+- SelectSort(ready) 17 jule 22
 - Heapsort(ready) 18 jule 22
 - LSDSort(in progress)
 - MSDSort(in progress)
