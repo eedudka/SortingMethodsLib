@@ -10,7 +10,7 @@ namespace SortingMethodsLib
         static void Main(string[] args)
         {
             var toSort = GenerateRandomArray();
-            toSort = toSort.SelectionSort().ToArray();
+            toSort = toSort.QuickSort().ToArray();
         }
         public static int[] GenerateRandomArray()
         {

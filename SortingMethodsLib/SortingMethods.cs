@@ -10,7 +10,9 @@ namespace SortingMethodsLib
     {
         private static int HeapSize;
 
-
+        private static int lowBitonicSort;
+        private static int CountBitonicSort;
+        const int dirBitonic = 1;
         private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
         {
             int tempData = DataToSwap[i];
@@ -23,7 +25,7 @@ namespace SortingMethodsLib
             int pivot = input[high];
             int i = low - 1;
 
-            for (int j = low; j < high - 1; j++)
+            for (int j = low; j < high; j++)
             {
                 if (input[j] <= pivot)
                 {
@@ -55,8 +57,51 @@ namespace SortingMethodsLib
                 PreHeapSort(ref DataToSort, largest);
             }
         }
+        private static void CompAndSwapBitonic(IList<int> DataToCS, int i, int j, int dir)
+        {
+            if ((dir != 0) == (DataToCS[i] > DataToCS[j]))
+            {
+                Swaper(ref DataToCS,i, j);
+            }
+        }
+        private static void BitonicMerge(IList<int> DataToMerge, int low, int count, int dir)
+        {
+            if (count > 1)
+            {
+                int k = count / 2;
+                for (int i = low; i < low + k; i++)
+                {
+                    CompAndSwapBitonic(DataToMerge, i, i + k, dir);
+                }
 
+                BitonicMerge(DataToMerge, low, k, dir);
+                BitonicMerge(DataToMerge, low + k, k, dir);
+            }
+        }
+        private static void Sort(ref IList<int> DataToSort, int low, int count, int dir)
+        {
+            if (count > 1)
+            {
+                int k = count / 2;
 
+                Sort(ref DataToSort, low, k, 1);
+
+                Sort(ref DataToSort, low + k, k, 0);
+
+                BitonicMerge(DataToSort, low, count, dir);
+            }
+        }
+        private static void QuickSort(ref IList<int> DataToSort, int low, int high)
+        {
+            int pivot_loc = 0;
+
+            if (low < high)
+            {
+                pivot_loc = DoPart(ref DataToSort, low, high);
+                QuickSort(ref DataToSort, low, pivot_loc - 1);
+                QuickSort(ref DataToSort, pivot_loc + 1, high);
+            }
+        }
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
 
@@ -200,19 +245,11 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
-        public static IList<int> QuickSort(this IList<int> DataToSort, int low, int high)
-        {
-            int pivot_loc = 0;
-
-            if (low < high)
-            {
-                pivot_loc = DoPart(ref DataToSort, low, high);
-                QuickSort(DataToSort, low, pivot_loc - 1);
-                QuickSort(DataToSort, pivot_loc + 1, high);
-            }
-
+        public static IList<int> QuickSort(this IList<int> DataToSort)
+        { 
+            QuickSort(ref DataToSort,0, DataToSort.Count-1);
             return DataToSort;
-        } //re (need only 1 params for comfortable use)
+        }
         public static IList<int> TreeSort(this IList<int> DataToSort)
         {
             TreeSort treeSort = new TreeSort();
@@ -235,7 +272,7 @@ namespace SortingMethodsLib
             return DataToSort;
 
         }
-        public static IList<int> SelectionSort(this IList<int> DataToSort) //re(sort only 50% array)
+        public static IList<int> SelectionSort(this IList<int> DataToSort)
         {
             for (int i = 0; i < DataToSort.Count - 1; i++)
             {
@@ -271,8 +308,7 @@ namespace SortingMethodsLib
                     rr--;
                 }
             }
-            //if (1 < rr) QuickSortWithInsert(DataToSort, 1, rr + 1);
-            //if (ll < DataToSort.Count-1) QuickSortWithInsert(DataToSort, ll, DataToSort.Count-1);
+     
             return DataToSort;
         } // re
         public static IList<int> HeapSort(this IList<int> DataToSort)
@@ -290,13 +326,11 @@ namespace SortingMethodsLib
             }
             return DataToSort;
         }
-        //public static IList<int> CountSort(this IList<int> DataToSort)
-        //{
-        //    int l = DataToSort.Min();
-        //    int r= DataToSort.Max();
-
-        //    return DataToSort;
-        //}
+        public static IList<int> BitonicSort(this IList<int> DataToSort)
+        {
+             Sort(ref DataToSort, 0, DataToSort.Count, 1);
+             return DataToSort;
+        }
 
     }
 }

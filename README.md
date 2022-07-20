@@ -8,16 +8,16 @@
 - ShellSort(ready) 09 jule 22
 - ShellSortK(ready) 16 jule 22
 - ShellSortHib(ready) 16 jule 22
-- QuickSort(ready) 14 jule 22
+- QuickSort(ready) 14 jule 22 (upd:20 jule 22)
 - ShellSortSedgwick(in progress)
 - ShellSortPratt(in progress) 
 - TreeSort(in refactoring) 14 jule 22
 - GnomeSort(ready) 17 jule 22
-- SelectSort(ready) 17 jule 22
+- SelectSort(ready) 17 jule 22 (upd:20 jule 22)
 - Heapsort(ready) 18 jule 22
 - LSDSort(in progress)
 - MSDSort(in progress)
-- BitonicSort(in progress)
+- BitonicSort(ready) 20 jule 22
 - Timsort(in progress)
 - GrailSort(in progress)
 - pdqsort(in progress)
