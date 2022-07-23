@@ -1,5 +1,5 @@
 # SortingMethodsLib
-[![LostTech.TensorFlow](https://img.shields.io/nuget/v/SortingMethodsLib.Core?label=nuget:%20SortingMethodsLib.Core)](https://www.nuget.org/packages/SortingMethodsLib.Core)
+[![SortingMethodsLib](https://img.shields.io/nuget/v/SortingMethodsLib.Core?label=nuget:%20SortingMethodsLib.Core)](https://www.nuget.org/packages/SortingMethodsLib.Core)
 ## This library currently implements such sorts as:
 - BoubleSort(ready) 09 jule 22
 - CoctailSort(ready) 09 jule 22
