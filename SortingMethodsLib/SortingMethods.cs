@@ -13,12 +13,12 @@ namespace SortingMethodsLib
         private static int lowBitonicSort;
         private static int CountBitonicSort;
         const int dirBitonic = 1;
-        private static IList<int> Swaper(ref IList<int> DataToSwap, int i, int j)
+        #region Helps Methods
+        private static void Swaper(ref IList<int> DataToSwap, int i, int j)
         {
             int tempData = DataToSwap[i];
             DataToSwap[i] = DataToSwap[j];
             DataToSwap[j] = tempData;
-            return DataToSwap;
         }
         private static int DoPart(ref IList<int> input, int low, int high)
         {
@@ -61,7 +61,7 @@ namespace SortingMethodsLib
         {
             if ((dir != 0) == (DataToCS[i] > DataToCS[j]))
             {
-                Swaper(ref DataToCS,i, j);
+                Swaper(ref DataToCS, i, j);
             }
         }
         private static void BitonicMerge(IList<int> DataToMerge, int low, int count, int dir)
@@ -102,6 +102,57 @@ namespace SortingMethodsLib
                 QuickSort(ref DataToSort, pivot_loc + 1, high);
             }
         }
+        private static void MergeMethod(ref IList<int> DataToSort, int left, int mid, int right)
+        {
+            int[] temp = new int[DataToSort.Count];
+            int i, left_end, num_elements, tmp_pos;
+            left_end = (mid - 1);
+            tmp_pos = left;
+            num_elements = (right - left + 1);
+            while ((left <= left_end) && (mid <= right))
+            {
+                if (DataToSort[left] <= DataToSort[mid])
+                    temp[tmp_pos++] = DataToSort[left++];
+                else
+                    temp[tmp_pos++] = DataToSort[mid++];
+            }
+            while (left <= left_end)
+                temp[tmp_pos++] = DataToSort[left++];
+            while (mid <= right)
+                temp[tmp_pos++] = DataToSort[mid++];
+            for (i = 0; i < num_elements; i++)
+            {
+                DataToSort[right] = temp[right];
+                right--;
+            }
+        }
+        private static void MergeSort(ref IList<int> DataToSort, int left, int right)
+        {
+            int mid;
+            if (right > left)
+            {
+                mid = (right + left) / 2;
+                MergeSort(ref DataToSort, left, mid);
+                MergeSort(ref DataToSort, (mid + 1), right);
+                MergeMethod(ref DataToSort, left, (mid + 1), right);
+            }
+        }
+        private static void InsertionSort(ref IList<int> DataToSort, int left, int right)
+        {
+            for (int i = left + 1; i <= right; i++)
+            {
+                int temp = DataToSort[i];
+                int j = i - 1;
+                while (j >= left && DataToSort[j] > temp)
+                {
+                    DataToSort[j + 1] = DataToSort[j];
+                    j--;
+                }
+                DataToSort[j + 1] = temp;
+            }
+
+        }
+        #endregion
         public static IList<int> BoubleSort(this IList<int> DataToSort)
         {
 
@@ -177,22 +228,6 @@ namespace SortingMethodsLib
 
             return DataToSort;
         }
-        public static IList<int> InsertionSort(this IList<int> DataToSort)
-        {
-            for (int i = 1; i < DataToSort.Count; i++)
-            {
-                int tempValue = DataToSort[i];
-                int j = i;
-                while (j > 0 && DataToSort[j - 1] > tempValue)
-                {
-                    Swaper(ref DataToSort, j, j - 1);
-                    j--;
-                }
-                DataToSort[j] = tempValue;
-
-            }
-            return DataToSort;
-        }
         public static IList<int> ShellSort(this IList<int> DataToSort)
         {
 
@@ -246,8 +281,8 @@ namespace SortingMethodsLib
             return DataToSort;
         }
         public static IList<int> QuickSort(this IList<int> DataToSort)
-        { 
-            QuickSort(ref DataToSort,0, DataToSort.Count-1);
+        {
+            QuickSort(ref DataToSort, 0, DataToSort.Count - 1);
             return DataToSort;
         }
         public static IList<int> TreeSort(this IList<int> DataToSort)
@@ -292,7 +327,7 @@ namespace SortingMethodsLib
         {
             if (DataToSort.Count - 1 <= 32)
             {
-                return DataToSort.InsertionSort();
+                //return DataToSort.InsertionSort();
             }
             int z = (1 + (DataToSort.Count - 1) / 2);
             int ll = 1;
@@ -308,7 +343,7 @@ namespace SortingMethodsLib
                     rr--;
                 }
             }
-     
+
             return DataToSort;
         } // re
         public static IList<int> HeapSort(this IList<int> DataToSort)
@@ -328,8 +363,47 @@ namespace SortingMethodsLib
         }
         public static IList<int> BitonicSort(this IList<int> DataToSort)
         {
-             Sort(ref DataToSort, 0, DataToSort.Count, 1);
-             return DataToSort;
+            Sort(ref DataToSort, 0, DataToSort.Count, 1);
+            return DataToSort;
+        }
+        public static IList<int> MergeSort(this IList<int> DataToSort)
+        {
+            MergeSort(ref DataToSort, 0, DataToSort.Count - 1);
+
+            return DataToSort;
+        }
+        public static IList<int> InsertionSort(this IList<int> DataToSort)
+        {
+            InsertionSort(ref DataToSort, 0, DataToSort.Count - 1);
+            return DataToSort;
+
+        }
+        /// <summary>
+        /// </summary>
+        /// <param name="DataToSort">Data to sort</param>
+        /// <param name="RunSize">Consider size of run</param>
+        /// <returns></returns>
+        public static IList<int> TimSort(this IList<int> DataToSort,int RunSize=32)
+        {
+            for (int i = 0; i < DataToSort.Count - 1; i += RunSize)
+                InsertionSort(ref DataToSort, i, Math.Min((i + RunSize - 1),
+                                            (DataToSort.Count - 1)));
+
+            for (int size = RunSize; size < DataToSort.Count-1;
+                                     size = 2 * size)
+            {
+                for (int left = 0; left < DataToSort.Count-1;
+                                     left += 2 * size)
+                {
+                    int mid = left + size - 1;
+                    int right = Math.Min((left + 2 * size - 1),
+                                                    (DataToSort.Count - 1));
+
+                    if (mid < right)
+                        MergeMethod(ref DataToSort, left, mid, right);
+                }
+            }
+            return DataToSort;
         }
 
     }

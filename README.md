@@ -4,7 +4,7 @@
 - BoubleSort(ready) 09 jule 22
 - CoctailSort(ready) 09 jule 22
 - CombSort(ready) 09 jule 22
-- InsertionSort(ready) 09 jule 22
+- InsertionSort(ready) 09 jule 22 (upd: 23 jule 22)
 - ShellSort(ready) 09 jule 22
 - ShellSortK(ready) 16 jule 22
 - ShellSortHib(ready) 16 jule 22
@@ -15,15 +15,17 @@
 - GnomeSort(ready) 17 jule 22
 - SelectSort(ready) 17 jule 22 (upd:20 jule 22)
 - Heapsort(ready) 18 jule 22
+- MergeSort(ready) 23 jule 22
 - LSDSort(in progress)
 - MSDSort(in progress)
 - BitonicSort(ready) 20 jule 22
-- Timsort(in progress)
+- Timsort(ready) 23 jule 22
 - GrailSort(in progress)
 - pdqsort(in progress)
 - BoostSort(in progress)
 
 *Also, upon completion of the implementation of all these algorithms, Automatic Sorting Selection (ASS) will be implemented*
+
 12 out of 21 (not counting variations of the same algorithms) are already ready and tested
 
 ## Code Exsample

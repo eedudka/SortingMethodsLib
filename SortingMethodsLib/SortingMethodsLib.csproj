@@ -6,7 +6,7 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<PackageId>SortingMethodsLib.Core</PackageId>
-		<Version>0.1.1</Version>
+		<Version>0.1.3</Version>
 		<Authors>Evgeniy Dudka</Authors>
 		<Company>Home</Company>
 		<Description>
